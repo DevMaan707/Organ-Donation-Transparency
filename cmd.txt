@@ -1,0 +1,2 @@
+Create ethereum accounts
+geth --datadir "./data" account new

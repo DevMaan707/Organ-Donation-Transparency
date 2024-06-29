@@ -1,0 +1,16 @@
+{
+  "name": "organ-donation-transparency",
+  "version": "1.0.0",
+  "description": "Organ donation application which leverages the benefits of  blockchain technology to provide transparency in organ donation and makes it secure",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aymaan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ethers": "^6.13.1",
+    "express": "^4.19.2"
+  }
+}
