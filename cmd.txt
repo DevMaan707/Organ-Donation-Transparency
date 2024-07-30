@@ -1,2 +1,57 @@
 Create ethereum accounts
 geth --datadir "./data" account new
+bootnode -genkey bootnode.key
+
+bootnode -nodekey bootnode.key -verbosity 7 -addr "127.0.0.1:30301"
+geth --datadir "./data"  --port 30304 --bootnodes enode://6b4d001b684629b44bfe0a9019e002f7df38de49c5e664e6a18ae668804716a870ca61450d1d7e09df7f791d0fa43d535f287bb580fe4cd27c94b0f6336d8afd@127.0.0.1:0?discport=30301 --authrpc.port 8547 --ipcdisable --allow-insecure-unlock  --http --http.corsdomain="https://remix.ethereum.org,http://localhost:3000,https://metamask.io" --http.api web3,eth,debug,personal,net --networkid 12345 --unlock 0x33742a719FE3120FDd4AD24B8f288902Dfd39583 --password password.txt --mine --miner.etherbase=0x33742a719FE3120FDd4AD24B8f288902Dfd39583
+geth --datadir "./data"  --port 30306 --bootnodes enode://{ YOUR_VALUE }  -authrpc.port 8546 --networkid { NETWORK_ID } --unlock { ADDRESS_NODE2 } --password { PASSWORD_FILE_WITH_EXTENSION }
+
+
+geth --datadir "./data" \
+     --port 30304 \
+     --bootnodes enode://6b4d001b684629b44bfe0a9019e002f7df38de49c5e664e6a18ae668804716a870ca61450d1d7e09df7f791d0fa43d535f287bb580fe4cd27c94b0f6336d8afd@127.0.0.1:0?discport=30301 \
+     --authrpc.port 8547 \
+     --http \
+     --http.addr "127.0.0.1" \
+     --http.port 8545 \
+     --http.corsdomain="*" \
+     --http.api web3,eth,debug,personal,net \
+     --networkid 12345 \
+     --unlock 0x33742a719FE3120FDd4AD24B8f288902Dfd39583 \
+     --password password.txt \
+     --mine \
+     --miner.etherbase=0x33742a719FE3120FDd4AD24B8f288902Dfd39583
+
+
+
+geth --datadir "./data" \
+     --port 30306 \
+     --bootnodes enode://6b4d001b684629b44bfe0a9019e002f7df38de49c5e664e6a18ae668804716a870ca61450d1d7e09df7f791d0fa43d535f287bb580fe4cd27c94b0f6336d8afd@127.0.0.1:0?discport=30301 \
+     --authrpc.port 8547 \
+     --http \
+     --http.addr "127.0.0.1" \
+     --http.port 8546 \
+     --http.corsdomain="*" \
+     --http.api web3,eth,debug,personal,net,personal \
+     --networkid 12345 \
+     --unlock 0x82e93111d62E9Be0e75B9CEcF8412fF48365E603 \
+     --password password.txt
+
+
+personal.unlockAccount("0x33742a719FE3120FDd4AD24B8f288902Dfd39583", "aymaan", 0)
+
+
+geth --datadir "./data" \
+     --port 30304 \
+     --bootnodes enode://6b4d001b684629b44bfe0a9019e002f7df38de49c5e664e6a18ae668804716a870ca61450d1d7e09df7f791d0fa43d535f287bb580fe4cd27c94b0f6336d8afd@127.0.0.1:0?discport=30301@127.0.0.1:30301 \
+     --http \
+     --http.addr "127.0.0.1" \
+     --http.port 8545 \
+     --http.corsdomain="*" \
+     --http.api web3,eth,debug,net,personal \
+     --networkid 12345 \
+     --ipcpath "./data/geth.ipc" \
+     --mine \
+     --miner.etherbase=0x33742a719FE3120FDd4AD24B8f288902Dfd39583
+
+
